@@ -8,6 +8,7 @@ spec:
     matchLabels:
       app: frontend
   policyTypes:
+  - Ingress
   - Egress
   egress:
     - to:
