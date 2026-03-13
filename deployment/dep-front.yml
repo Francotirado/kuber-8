@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mtool-frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: mtool-frontend
+          image: wbitt/network-multitool
+          ports:
+            - containerPort: 80
+          env:
+            - name: HTTP_PORT
+              value: "80"

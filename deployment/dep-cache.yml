@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mtool-cache
+spec:
+  selector:
+    matchLabels:
+      app: cache
+  template:
+    metadata:
+      labels:
+        app: cache
+    spec:
+      containers:
+        - name: mtool-cache
+          image: wbitt/network-multitool
+          ports:
+            - containerPort: 80
+          env:
+            - name: HTTP_PORT
+              value: "80"
